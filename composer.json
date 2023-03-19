@@ -1,0 +1,5 @@
+{
+    "require": {
+        "lezhnev74/openapi-psr7-validator": "^0.16.0"
+    }
+}

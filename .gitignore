@@ -1,1 +1,30 @@
 .idea/*
+### https://raw.github.com/github/gitignore/d0b80a469983a7beece8fa1f5c48a8242318b531/CakePHP.gitignore
+
+# CakePHP 3
+
+/vendor/*
+/config/app.php
+
+/tmp/cache/models/*
+!/tmp/cache/models/empty
+/tmp/cache/persistent/*
+!/tmp/cache/persistent/empty
+/tmp/cache/views/*
+!/tmp/cache/views/empty
+/tmp/sessions/*
+!/tmp/sessions/empty
+/tmp/tests/*
+!/tmp/tests/empty
+
+/logs/*
+!/logs/empty
+
+# CakePHP 2
+
+/app/tmp/*
+/app/Config/core.php
+/app/Config/database.php
+/vendors/*
+
+
