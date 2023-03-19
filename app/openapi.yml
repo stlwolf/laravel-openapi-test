@@ -1,105 +1,78 @@
 openapi: 3.0.0
 info:
   title: Post API
-  description: A simple API for managing blog posts.
   version: 1.0.0
-servers:
-  - url: http://localhost:8000/api
 paths:
-  /posts:
-    get:
-      summary: Retrieve a list of posts
-      operationId: getPosts
-      responses:
-        '200':
-          description: A list of posts
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/Post'
+  /api/posts:
     post:
       summary: Create a new post
-      operationId: createPost
       requestBody:
         required: true
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/PostCreate'
+              type: object
+              properties:
+                title:
+                  type: string
+                content:
+                  type: string
       responses:
         '201':
-          description: Post created successfully
+          description: Created
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Post'
-  /posts/{id}:
-    parameters:
-      - name: id
-        in: path
-        required: true
-        schema:
-          type: integer
-          format: int64
-    get:
-      summary: Retrieve a specific post by its ID
-      operationId: getPostById
-      responses:
-        '200':
-          description: Post found
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Post'
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  title:
+                    type: string
+                  content:
+                    type: string
+  /api/posts/{id}:
     put:
-      summary: Update a specific post by its ID
-      operationId: updatePostById
+      summary: Update an existing post
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
       requestBody:
         required: true
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/PostCreate'
+              type: object
+              properties:
+                title:
+                  type: string
+                content:
+                  type: string
       responses:
         '200':
-          description: Post updated successfully
+          description: OK
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Post'
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  title:
+                    type: string
+                  content:
+                    type: string
     delete:
-      summary: Delete a specific post by its ID
-      operationId: deletePostById
+      summary: Delete a post
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
       responses:
         '204':
-          description: Post deleted successfully
-components:
-  schemas:
-    Post:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int64
-        title:
-          type: string
-        content:
-          type: string
-        created_at:
-          type: string
-          format: date-time
-        updated_at:
-          type: string
-          format: date-time
-    PostCreate:
-      type: object
-      properties:
-        title:
-          type: string
-        content:
-          type: string
-      required:
-        - title
-        - content
+          description: No Content
