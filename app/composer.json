@@ -11,6 +11,7 @@
         "laravel/framework": "^8.75",
         "laravel/sanctum": "^2.11",
         "laravel/tinker": "^2.5",
+        "lezhnev74/openapi-psr7-validator": "^0.16.0",
         "nyholm/psr7": "^1.5"
     },
     "require-dev": {
